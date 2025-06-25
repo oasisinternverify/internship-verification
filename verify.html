@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate Verification - Oasis Infobyte</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, #6bc3f9, #a17de6);
+    }
+
+    .logo {
+      position: absolute;
+      top: 30px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      font-size: 26px;
+      font-weight: 600;
+      color: #6d52c2;
+    }
+
+    .logo img {
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #a17de6;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #a17de6;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    button {
+      background: linear-gradient(to right, #5fc5f9, #9c6ade);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100px;
+    }
+
+    button:hover {
+      opacity: 0.95;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Left Logo -->
+  <div class="logo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyq7rG9Y9tkmDZLIzbnde7wd08wokqwaSAlA&s" alt="Logo" />
+    OASIS INFOBYTE
+  </div>
+
+  <!-- Verification Box -->
+  <div class="container">
+    <h2>Certificate Verification</h2>
+    <label for="certId">Certificate Id</label>
+    <input type="text" id="certId" placeholder="Enter your certificate id" />
+    <button onclick="verifyId()">Verify</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function verifyId() {
+      const enteredId = document.getElementById('certId').value.trim();
+      const validId = "OIB12345"; // Replace with your actual logic
+      const result = document.getElementById('result');
+
+      if (enteredId === "") {
+        result.style.color = "red";
+        result.textContent = "❌ Please enter a Certificate ID.";
+        return;
+      }
+
+      if (enteredId === validId) {
+        result.style.color = "green";
+        result.textContent = "✅ Certificate Verified Successfully.";
+      } else {
+        result.style.color = "red";
+        result.textContent = "❌ Invalid Certificate ID. Please try again.";
+      }
+    }
+  </script>
+</body>
+</html>
